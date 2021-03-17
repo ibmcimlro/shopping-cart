@@ -1,5 +1,15 @@
 <template>
   <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
+  </div>
+</template>
+
+<template>
+  <div id="app">
     <NavHeader />
     <router-view/>
   </div>
@@ -11,6 +21,14 @@ export default {
   components: {
     NavHeader
   },
+  mounted(){
+    this.$store.dispatch("getProducts");
+  }
+}
+</script>
+
+<script>
+export default {
   mounted(){
     this.$store.dispatch("getProducts");
   }
